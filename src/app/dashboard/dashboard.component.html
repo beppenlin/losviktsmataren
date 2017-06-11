@@ -1,0 +1,9 @@
+<h3>Butiker Umeå-väst</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let store of data" [routerLink]="['/storedetail', store.id]" routerLinkActive="active" class="col-1-4">
+    <div class="module hero">
+      <h4>{{store.store}} {{store.store_name}}</h4>
+    </div>
+  </a>
+</div>
+

@@ -1,0 +1,32 @@
+
+<h2>Boxes that need refill for area</h2>
+<div class="container-fluid">
+  <div class="col-sm-6">
+    <table class="table table-bordered">
+      <thead>
+      <th>Store</th>
+      <th>Berry</th>
+      <th>Weight</th>
+      <th>Priority</th>
+      </thead>
+      <tbody *ngFor="let berry of data">
+      <tr *ngFor="let freezer of berry.freezer">
+        <td *ngIf="freezer.berries_weight < 6000">{{berry.store}} {{berry.store_name}}</td>
+        <td *ngIf="freezer.berries_weight < 6000">{{freezer.berries_type}}</td>
+        <td *ngIf="freezer.berries_weight < 6000">{{(freezer.berries_weight)}} grams</td>
+        <td *ngIf="freezer.berries_weight <= 3000">
+          <img src="../../assets/img/200px-Red_dot.svg.png" width="50px" height="50px">
+        </td>
+        <td *ngIf="freezer.berries_weight > 3000 && freezer.berries_weight <= 6000">
+          <img src="../../assets/img/Yellow_icon.svg" width="50px" height="50px">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div>
+  <button (click)="goBack()">Back</button>
+</div>
+

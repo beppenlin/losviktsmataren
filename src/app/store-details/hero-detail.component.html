@@ -1,0 +1,54 @@
+<div *ngIf="stores">
+  <h2>{{stores.store}} {{stores.store_name}}</h2>
+  <div ><label>id: </label>
+    {{stores.id}}
+  </div>
+  <div>
+    <label>name: </label>
+    {{stores.store}} {{stores.store_name}}
+  </div>
+ <table class="table table-bordered">
+   <thead>
+   <th>Berry</th>
+   <th>Weight</th>
+   </thead>
+   <tbody>
+   <tr *ngFor="let data of stores.freezer">
+     <td>{{data.berries_type}}</td>
+     <td>{{data.berries_weight}}</td>
+     <td *ngIf="data.berries_weight >= 7500" >
+       <div class="progress">
+         <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40"
+              aria-valuemin="0" aria-valuemax="100" [style.width] = "(data.berries_weight/14000)*100 + '%'">
+           {{(data.berries_weight/14000)| percent:'1.1-1'}}
+         </div>
+       </div>
+     </td>
+     <td *ngIf="data.berries_weight < 7500 && data.berries_weight >= 3500">
+       <div class="progress">
+         <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60"
+              aria-valuemin="0" aria-valuemax="100" [style.width] = "(data.berries_weight/14000)*100 + '%'">
+           {{(data.berries_weight/14000)| percent:'1.1-1'}}
+         </div>
+       </div>
+   </td>
+     <td *ngIf="data.berries_weight < 3500">
+       <div class="progress">
+         <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" [style.width] = "(data.berries_weight/14000)*100 + '%'">
+           {{(data.berries_weight/14000)| percent:'1.1-1'}}
+         </div>
+       </div>
+     </td>
+   </tr>
+   </tbody>
+ </table>
+</div>
+<div>
+  <button (click)="goBack()">Back</button>
+</div>
+
+<!--<div class="progress-bar" role="progressbar" aria-valuenow="100"
+     aria-valuemin="0" aria-valuemax="100" [style.width] = "(data.berries_weight/14000)*100 + '%'">
+  {{(data.berries_weight/14000).toFixed(2)*100}} %
+</div>-->

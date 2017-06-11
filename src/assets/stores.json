@@ -1,0 +1,12 @@
+[{"id":1,
+  "store": "Coop",
+  "store_location":"Teg"},
+{"id":2,
+  "store":"Coop",
+  "store_location":"Haga"},
+{"id":3,
+  "store":"Coop",
+  "store_location":"Ersboda"},
+{"id":4,
+  "store":"Ica",
+  "store_location":"Teg"}]
